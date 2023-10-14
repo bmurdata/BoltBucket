@@ -2,7 +2,7 @@ import {pool} from '../config/database.js';
 
 const getCustomCar=async(req,res)=>{
     try{
-        const query =`SELECT exterior, roof, wheels, interior, image FROM customcar;`
+        const query =`SELECT exterior, roof, wheels, interior, image,name FROM customcar;`
         const results= await pool.query(query)
         res.status(200).json(results.rows)
     }

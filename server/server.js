@@ -6,6 +6,7 @@ import dotenv from 'dotenv'
 // import the router from your routes file
 import optionRouter from './routes/options.js'
 import carRouter from './routes/car.js'
+import cors from 'cors'
 dotenv.config()
 
 const PORT = process.env.PORT || 3000
