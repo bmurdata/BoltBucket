@@ -11,7 +11,7 @@ const createcustomcarTable=async ()=>{
         roof VARCHAR(255) NOT NULL,
         wheels VARCHAR(255) NOT NULL,
         interior VARCHAR(255) NOT NULL,
-        image VARCHAR(255) NOT NULL,
+        image VARCHAR(255),
         name VARCHAR(255) NOT NULL
     );
     `

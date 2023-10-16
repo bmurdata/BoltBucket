@@ -13,7 +13,7 @@ const Card = (props) => {
     return (
         <div className="card">
             <div className='top-container' style={{ backgroundImage:`url(${car.image})`}}></div>
-            <div className='bottom-container'>
+            <div className='bottom-container' style={{ background: "rgba(128,128,128,.8)"}}>
                 <h3>{car.name}</h3>
                 <p>{'Exterior: ' + car.exterior}</p>
                 <p>{'Roof' + car.roof}</p>

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 #root {
+    --form-element-color:rgb(255, 121, 121);
     --font-family: Rubik, Verdana, sans-serif;
     --primary: rgb(115, 2, 12);
     --primary-hover: black;
@@ -11,7 +12,7 @@
     --card-background-color: rgba(0, 0, 0, 0.8);
     --card-sectionning-background-color: rgba(0, 0, 0, 0.8);
     --form-element-active-border-color: var(--color);
-    --form-element-placeholder-color: gray;
+    --form-element-placeholder-color: rgb(253, 0, 0);
 }
 
 #root h1 {

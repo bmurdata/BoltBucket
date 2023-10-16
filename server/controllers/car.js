@@ -2,8 +2,10 @@ import {pool} from '../config/database.js';
 
 const getCustomCar=async(req,res)=>{
     try{
-        const query =`SELECT exterior, roof, wheels, interior, image,name FROM customcar;`
+        const query =`SELECT * FROM customcar;`
         const results= await pool.query(query)
+        console.log(`Number of items returned:${results.rows.length} `)
+        console.log(results.rows)
         res.status(200).json(results.rows)
     }
     catch(err){
@@ -15,8 +17,9 @@ const getCustomCar=async(req,res)=>{
 const getCustomCarById=async(req,res)=>{
     try{       
         const carID=req.params.carID;
-        const query = `SELECT exterior, roof, wheels, interior, image FROM customcar;`
-        const results= await pool.query(query, [carID])
+        console.log(carID)
+        const query = `SELECT * FROM customcar WHERE id=${carID};`
+        const results= await pool.query(query)
         if (results.rows.length === 0) {
             res.status(404).json({error: 'Car not found' });
         } else {
@@ -32,9 +35,9 @@ const getCustomCarById=async(req,res)=>{
 // Create new custom car
 const createCustomCar = async(req, res) => {
     try{
-        const {exterior, roof, wheels, interior} = req.body;
+        const {exterior, roof, wheels, interior,image} = req.body;
         const query = `INSERT INTO customcar (exterior, roof, wheels, interior, image) VALUES ($1,$2,$3,$4,$5) RETURNING id;`;
-        const results= await pool.query(query,[exterior,roof,wheels,interior]);
+        const results= await pool.query(query,[exterior,roof,wheels,interior,image]);
         const newCarID = results.rows[0].id;
         res.status(201).json({message: 'Car created', carID: newCarID});
     }

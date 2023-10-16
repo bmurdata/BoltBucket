@@ -10,7 +10,7 @@ console.log('SEE THE CARS')
     const fetchcars = async () => {
       try{
         console.log('Running fetch')
-        const response=await fetch('/api/cars')
+        const response=await fetch('http://localhost:3000/cars')
         console.log('Running the code')
         console.log(response)
         const data=await response.json()
@@ -40,6 +40,7 @@ console.log('SEE THE CARS')
                    roof={car.roof} 
                    exterior={car.exterior} 
                    wheels={car.wheels} 
+                   interior={car.interior}
                    image={car.image}
                    name={car.name} />
 
