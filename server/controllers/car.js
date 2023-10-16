@@ -35,9 +35,11 @@ const getCustomCarById=async(req,res)=>{
 // Create new custom car
 const createCustomCar = async(req, res) => {
     try{
-        const {exterior, roof, wheels, interior,image} = req.body;
-        const query = `INSERT INTO customcar (exterior, roof, wheels, interior, image) VALUES ($1,$2,$3,$4,$5) RETURNING id;`;
-        const results= await pool.query(query,[exterior,roof,wheels,interior,image]);
+        console.log('Creating a new car')
+        console.log(req.body)
+        const {name,exterior, roof, wheels, interior,image} = req.body;
+        const query = `INSERT INTO customcar (name,exterior, roof, wheels, interior, image) VALUES ($1,$2,$3,$4,$5,$6) RETURNING id;`;
+        const results= await pool.query(query,[name,exterior,roof,wheels,interior,image]);
         const newCarID = results.rows[0].id;
         res.status(201).json({message: 'Car created', carID: newCarID});
     }

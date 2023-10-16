@@ -4,7 +4,8 @@ import Card from '../components/Card';
 const ViewCars = () => {
     console.log('Getting all cars')
     const [cars, setCars] = useState([]);
-console.log('SEE THE CARS')
+    // Get options to load images from
+    
 
   useEffect(() => {
     const fetchcars = async () => {
